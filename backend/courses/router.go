@@ -2,7 +2,6 @@ package courses
 
 import (
 	"encoding/json"
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -31,7 +30,6 @@ func getCoursePosts(c *gin.Context) {
 func createCourse(c *gin.Context) {
 	var newCourse Course
 	json.NewDecoder(c.Request.Body).Decode(&newCourse)
-	fmt.Println(newCourse)
 	requestCreateCourse(newCourse)
 	c.Status(http.StatusOK)
 }
