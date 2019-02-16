@@ -84,7 +84,7 @@ func AuthHandler(c *gin.Context) {
 	// }
 
 	log.Println("User data: ", string(data))
-	c.Status(http.StatusOK)
+	c.HTML(http.StatusOK, "index.html", nil)
 }
 
 /* Package */

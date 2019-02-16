@@ -4,7 +4,7 @@ module.exports = React.createClass({
     render: function() {
         return (
             <div>
-                <h1>世界のStudyITへよこぞう!</h1>
+                <h1>This is a course page for {this.props.match.params.code}</h1>
             </div>
         )
     }

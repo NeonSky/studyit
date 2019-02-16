@@ -4,4 +4,8 @@ database/secrets
 
 database/data
 
+node_modules
+package-lock.json
+bundle.js
+
 todo.txt

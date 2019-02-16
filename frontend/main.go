@@ -1,10 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
-	"net/http"
 
 	"github.com/NeonSky/studyit/frontend/handlers"
 )
@@ -34,6 +32,8 @@ func main() {
 	authorized := router.Group("/")
 	authorized.Use(middleAuthReq())
 	{
+		authorized.GET("/user/:id", handlers.UserHandler)
+		authorized.GET("/course/:id", handlers.CourseHandler)
 		authorized.GET("/study/:id", handlers.StudyHandler)
 	}
 
@@ -46,8 +46,9 @@ func middleAuthReq() gin.HandlerFunc {
 		session := sessions.Default(c)
 		userID := session.Get("user-id")
 		if userID == nil {
-			c.Status(http.StatusUnauthorized)
-			c.Abort()
+			fmt.Println("ACCESS NOT GRANTED")
+			handlers.LoginHandler(c)
+			return
 		}
 		c.Next()
 	}

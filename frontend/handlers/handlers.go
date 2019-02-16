@@ -37,6 +37,30 @@ func StudyHandler(c *gin.Context) {
 	c.HTML(http.StatusOK, "index.html", nil)
 }
 
+func UserHandler(c *gin.Context) {
+	fmt.Println("Reached user handler")
+	courseID := c.Param("id")
+	fmt.Println(courseID)
+
+	session := sessions.Default(c)
+	userID := session.Get("user-id")
+	fmt.Println("...and our user-id is", userID)
+
+	c.HTML(http.StatusOK, "index.html", nil)
+}
+
+func CourseHandler(c *gin.Context) {
+	fmt.Println("Reached course handler")
+	courseID := c.Param("id")
+	fmt.Println(courseID)
+
+	session := sessions.Default(c)
+	userID := session.Get("user-id")
+	fmt.Println("...and our user-id is", userID)
+
+	c.HTML(http.StatusOK, "index.html", nil)
+}
+
 /* Package */
 func getLoginURL(state string) string {
 	return conf.AuthCodeURL(state)
