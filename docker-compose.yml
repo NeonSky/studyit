@@ -1,0 +1,33 @@
+version: "3.4"
+services:
+  frontend:
+    container_name: frontend
+    image: studyit_frontend
+    build:
+      context: ./frontend/
+      dockerfile: Dockerfile
+    links:
+      - "backend"
+    ports:
+      - "8080:8080"
+  backend:
+    container_name: backend
+    image: studyit_backend
+    build:
+      context: ./backend/
+      dockerfile: Dockerfile
+    links:
+      - "database"
+    ports:
+      - "9000:9000"
+  database:
+    container_name: database
+    image: mongo
+    restart: always
+    volumes:
+      - ./database/data:/data/db
+    ports:
+      - "27017:27017"
+    #environment:
+    #  MONGO_INITDB_ROOT_USERNAME: root
+    #  MONGO_INITDB_ROOT_PASSWORD: example
