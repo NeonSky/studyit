@@ -1,0 +1,21 @@
+{
+  "name": "studyit_frontend",
+  "author": "Jacob Eriksson",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "bundle-old": "watchify -o ./public/bundle.js -v -d src/main.js",
+    "bundle": "browserify src/main.js > ./public/bundle.js"
+  },
+  "dependencies": {
+    "browserify": "^3.46.1",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "reactify": "^1.1.1"
+  },
+  "browserify": {
+    "transform": [
+      "reactify"
+    ]
+  }
+}

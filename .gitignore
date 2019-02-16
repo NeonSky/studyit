@@ -1,0 +1,7 @@
+frontend/secrets
+backend/secrets
+database/secrets
+
+database/data
+
+todo.txt
