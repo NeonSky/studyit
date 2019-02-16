@@ -7,6 +7,7 @@ const Switch = require('react-router-dom').Switch
 
 var Hello = require('./hello')
 var Course = require('./course')
+var User = require('./user')
 
 
 module.exports = React.createClass({
@@ -16,6 +17,7 @@ module.exports = React.createClass({
             <BrowserRouter>
                 <Switch>
                     <Route path="/course/:code" component={Course} />
+                    <Route path="/user/:mail" component={User} />
                     <Route path="/" component={Hello} />
                 </Switch>
             </BrowserRouter>
