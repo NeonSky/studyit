@@ -6,7 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"net/http"
 
-	"github.com/studyit/frontend/handlers"
+	"github.com/NeonSky/studyit/frontend/handlers"
 )
 
 var store = sessions.NewCookieStore([]byte("secret"))
@@ -31,10 +31,10 @@ func main() {
 	router.StaticFile("bundle.js", "./public/bundle.js")
 	router.StaticFile("bundle.css", "./public/bundle.css")
 
-	authorized := router.Group("/study")
+	authorized := router.Group("/")
 	authorized.Use(middleAuthReq())
 	{
-		authorized.GET("/:id", handlers.StudyHandler)
+		authorized.GET("/study/:id", handlers.StudyHandler)
 	}
 
 	router.Run(":8080")
@@ -42,12 +42,10 @@ func main() {
 
 // Crude middleware
 func middleAuthReq() gin.HandlerFunc {
-	fmt.Println("MIDDLEWARE")
 	return func(c *gin.Context) {
-		fmt.Println("Checking user id")
 		session := sessions.Default(c)
-		valid := session.Get("user-id")
-		if valid == nil {
+		userID := session.Get("user-id")
+		if userID == nil {
 			c.Status(http.StatusUnauthorized)
 			c.Abort()
 		}

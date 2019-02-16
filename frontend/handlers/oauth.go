@@ -20,15 +20,14 @@ type OauthCredentials struct {
 }
 
 type User struct {
-	Email         string `json:"email"`
-	EmailVerified string `json:"email_verified"`
-	FamilyName    string `json:"family_name"`
-	Gender        string `json:"gender"`
-	GivenName     string `json:"given_name"`
-	Name          string `json:"name"`
-	Picture       string `json:"picture"`
-	Profile       string `json:"profile"`
-	Sub           string `json:"sub"`
+	Email      string `json:"email"`
+	FamilyName string `json:"family_name"`
+	Gender     string `json:"gender"`
+	GivenName  string `json:"given_name"`
+	Name       string `json:"name"`
+	Picture    string `json:"picture"`
+	Profile    string `json:"profile"`
+	Sub        string `json:"sub"`
 }
 
 const credentialsFile = "./secrets/oauth-creds.json"

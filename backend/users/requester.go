@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/globalsign/mgo/bson"
 
-	"github.com/studyit/backend/util"
+	"github.com/NeonSky/studyit/backend/util"
 )
 
 func RequestUser(email string) User {

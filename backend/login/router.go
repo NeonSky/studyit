@@ -5,7 +5,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"net/http"
 
-	"github.com/studyit/backend/users"
+	"github.com/NeonSky/studyit/backend/users"
 )
 
 /* Public */

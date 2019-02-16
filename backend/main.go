@@ -1,9 +1,9 @@
 package main
 
 import (
+	"github.com/NeonSky/studyit/backend/login"
+	"github.com/NeonSky/studyit/backend/users"
 	"github.com/gin-gonic/gin"
-	"github.com/studyit/backend/login"
-	"github.com/studyit/backend/users"
 )
 
 func main() {
